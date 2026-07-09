@@ -1,10 +1,18 @@
-export type ComponentId = 'command-palette' | 'delete-button' | 'marquee' | 'drawer'
+export type ComponentId =
+  | 'command-palette'
+  | 'delete-button'
+  | 'marquee'
+  | 'drawer'
+  | 'number-flow'
+  | 'toolbar'
 
 const items: { id: ComponentId; label: string }[] = [
   { id: 'command-palette', label: 'Command Palette' },
   { id: 'delete-button', label: 'Delete Button' },
   { id: 'marquee', label: 'Marquee' },
   { id: 'drawer', label: 'Drawer' },
+  { id: 'number-flow', label: 'Number Flow' },
+  { id: 'toolbar', label: 'Toolbar' },
 ]
 
 type SidebarMenuProps = {

@@ -4,8 +4,10 @@ import { CommandPalette } from './components/CommandPalette'
 import { DeleteButton } from './components/DeleteButton'
 import { DrawerPage } from './components/Drawer'
 import { MarqueePage } from './components/Marquee'
+import { NumberFlowPage } from './components/NumberFlowPage'
 import { Preloader } from './components/Preloader'
 import { SidebarMenu, type ComponentId } from './components/SidebarMenu'
+import { ToolbarPage } from './components/Toolbar'
 
 function App() {
   const [isReady, setIsReady] = useState(false)
@@ -36,6 +38,8 @@ function App() {
               {activeComponent === 'delete-button' && <DeleteButton />}
               {activeComponent === 'marquee' && <MarqueePage />}
               {activeComponent === 'drawer' && <DrawerPage />}
+              {activeComponent === 'number-flow' && <NumberFlowPage />}
+              {activeComponent === 'toolbar' && <ToolbarPage />}
             </main>
           </div>
         </motion.div>
