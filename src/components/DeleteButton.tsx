@@ -22,7 +22,13 @@ function TrashIcon() {
   )
 }
 
-export function DeleteButton() {
+export function DeleteButton({
+  onDelete,
+  className,
+}: {
+  onDelete?: () => void
+  className?: string
+} = {}) {
   const fillRef = useRef<HTMLSpanElement>(null)
   const fillAnimationRef = useRef<ReturnType<typeof animate> | null>(null)
   const [isPressing, setIsPressing] = useState(false)
@@ -37,7 +43,11 @@ export function DeleteButton() {
     fillAnimationRef.current = animate(
       fillRef.current,
       { scaleX: 1 },
-      { duration: FILL_DURATION, ease: 'linear' },
+      {
+        duration: FILL_DURATION,
+        ease: 'linear',
+        onComplete: () => onDelete?.(),
+      },
     )
   }
 
@@ -76,7 +86,7 @@ export function DeleteButton() {
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerCancel}
       onPointerLeave={handlePointerCancel}
-      className="relative flex select-none items-center gap-2 overflow-hidden rounded-full bg-[#ffc2c3] px-[12px] py-[8px] text-sm font-medium touch-none"
+      className={`relative flex select-none items-center gap-2 overflow-hidden rounded-full bg-[#ffc2c3] px-[12px] py-[8px] text-sm font-medium touch-none ${className ?? ''}`}
       whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
     >

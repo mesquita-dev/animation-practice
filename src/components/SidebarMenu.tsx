@@ -5,6 +5,7 @@ export type ComponentId =
   | 'drawer'
   | 'number-flow'
   | 'toolbar'
+  | 'uploading-file'
 
 const items: { id: ComponentId; label: string }[] = [
   { id: 'command-palette', label: 'Command Palette' },
@@ -13,6 +14,7 @@ const items: { id: ComponentId; label: string }[] = [
   { id: 'drawer', label: 'Drawer' },
   { id: 'number-flow', label: 'Number Flow' },
   { id: 'toolbar', label: 'Toolbar' },
+  { id: 'uploading-file', label: 'Uploading File' },
 ]
 
 type SidebarMenuProps = {

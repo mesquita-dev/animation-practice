@@ -8,6 +8,7 @@ import { NumberFlowPage } from './components/NumberFlowPage'
 import { Preloader } from './components/Preloader'
 import { SidebarMenu, type ComponentId } from './components/SidebarMenu'
 import { ToolbarPage } from './components/Toolbar'
+import { UploadingFilePage } from './components/UploadingFilePage'
 
 function App() {
   const [isReady, setIsReady] = useState(false)
@@ -40,6 +41,7 @@ function App() {
               {activeComponent === 'drawer' && <DrawerPage />}
               {activeComponent === 'number-flow' && <NumberFlowPage />}
               {activeComponent === 'toolbar' && <ToolbarPage />}
+              {activeComponent === 'uploading-file' && <UploadingFilePage />}
             </main>
           </div>
         </motion.div>
