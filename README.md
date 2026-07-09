@@ -17,18 +17,21 @@ O projeto está publicado em:
 
 **https://mesquita-dev.github.io/animation-practice/**
 
-O deploy é feito automaticamente via GitHub Actions ao dar push na branch `main`.
+O deploy roda automaticamente via GitHub Actions a cada push na branch `main`. O workflow gera o build e publica na branch `gh-pages`.
 
 ### Configuração (uma vez)
 
 1. Repositório → **Settings** → **Pages**
-2. Em **Build and deployment**, escolha **Source: GitHub Actions**
+2. Em **Build and deployment**, escolha **Source: Deploy from a branch**
+3. Branch: **`gh-pages`** · Folder: **`/ (root)`**
+
+> **Importante:** não use a branch `main` como source. A `main` tem o código-fonte de desenvolvimento (`/src/main.tsx`), que deixa a página em branco no GitHub Pages.
 
 ### Por que a página ficava em branco?
 
-O GitHub Pages estava servindo o código-fonte (`/src/main.tsx`) em vez do build de produção (`dist/`). Navegadores não executam TypeScript/React diretamente — é preciso rodar `npm run build` e publicar a pasta `dist/`.
+O GitHub Pages estava servindo o `index.html` de desenvolvimento da branch `main`, com `<script src="/src/main.tsx">`. O navegador não executa TypeScript/React diretamente — o site precisa do build de produção (`dist/`).
 
-Para projetos em `username.github.io/nome-do-repo/`, o Vite também precisa do `base: '/animation-practice/'` (já configurado no `vite.config.ts`).
+O workflow publica só o conteúdo de `dist/` na branch `gh-pages`. Para projetos em `username.github.io/nome-do-repo/`, o Vite usa `base: '/animation-practice/'` (já configurado no `vite.config.ts`).
 
 ## Estrutura
 
